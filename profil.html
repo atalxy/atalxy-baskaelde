@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profilim - Başka Elde</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../index.html">BAŞKA ELDE</a>
+            </div>
+            <div class="search-bar">
+                <form id="searchForm">
+                    <div class="search-input-group">
+                        <input type="text" placeholder="Ne aramıştınız?">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="nav-links">
+                <button class="btn-secondary" onclick="showAuthModal()">
+                    <i class="fas fa-user"></i> Giriş Yap
+                </button>
+                <a href="ilan-ekle.html" class="btn-primary">
+                    <i class="fas fa-plus"></i> İlan Ver
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="profile-container">
+        <!-- Profil Başlığı -->
+        <div class="profile-header">
+            <div class="profile-cover">
+                <button class="edit-cover">
+                    <i class="fas fa-camera"></i> Kapak Fotoğrafı Değiştir
+                </button>
+            </div>
+            <div class="profile-info">
+                <div class="profile-avatar">
+                    <img src="../images/default-avatar.png" alt="Profil Fotoğrafı" id="profileAvatar">
+                    <button class="edit-avatar">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+                <div class="profile-details">
+                    <h1 id="profileName">Kullanıcı Adı</h1>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-value" id="listingCount">0</span>
+                            <span class="stat-label">İlan</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value" id="ratingAverage">0.0</span>
+                            <span class="stat-label">Puan</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value" id="successfulSales">0</span>
+                            <span class="stat-label">Başarılı Satış</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profil İçeriği -->
+        <div class="profile-content">
+            <!-- Sekmeler -->
+            <div class="profile-tabs">
+                <button class="tab-btn active" data-tab="listings">
+                    <i class="fas fa-list"></i> İlanlarım
+                </button>
+                <button class="tab-btn" data-tab="favorites">
+                    <i class="fas fa-heart"></i> Favorilerim
+                </button>
+                <button class="tab-btn" data-tab="reviews">
+                    <i class="fas fa-star"></i> Değerlendirmeler
+                </button>
+                <button class="tab-btn" data-tab="settings">
+                    <i class="fas fa-cog"></i> Ayarlar
+                </button>
+            </div>
+
+            <!-- İlanlarım Sekmesi -->
+            <div class="tab-content active" id="listings">
+                <div class="listings-filter">
+                    <button class="filter-btn active" data-filter="active">Aktif</button>
+                    <button class="filter-btn" data-filter="pending">Onay Bekleyen</button>
+                    <button class="filter-btn" data-filter="sold">Satılan</button>
+                </div>
+                <div class="listings-grid" id="listingsGrid">
+                    <!-- İlanlar JavaScript ile eklenecek -->
+                </div>
+            </div>
+
+            <!-- Favorilerim Sekmesi -->
+            <div class="tab-content" id="favorites">
+                <div class="favorites-grid" id="favoritesGrid">
+                    <!-- Favoriler JavaScript ile eklenecek -->
+                </div>
+            </div>
+
+            <!-- Değerlendirmeler Sekmesi -->
+            <div class="tab-content" id="reviews">
+                <div class="reviews-summary">
+                    <div class="rating-box">
+                        <div class="rating-score" id="overallRating">4.5</div>
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="rating-count">Toplam 28 değerlendirme</div>
+                    </div>
+                    <div class="rating-bars">
+                        <div class="rating-bar">
+                            <span class="bar-label">5 yıldız</span>
+                            <div class="bar">
+                                <div class="bar-fill" style="width: 70%"></div>
+                            </div>
+                            <span class="bar-count">20</span>
+                        </div>
+                        <!-- Diğer yıldız barları benzer şekilde -->
+                    </div>
+                </div>
+                <div class="reviews-list" id="reviewsList">
+                    <!-- Değerlendirmeler JavaScript ile eklenecek -->
+                </div>
+            </div>
+
+            <!-- Ayarlar Sekmesi -->
+            <div class="tab-content" id="settings">
+                <form id="profileSettingsForm" class="settings-form">
+                    <div class="form-section">
+                        <h3>Kişisel Bilgiler</h3>
+                        <div class="form-group">
+                            <label for="fullName">Ad Soyad</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-posta</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Adres Bilgileri</h3>
+                        <div class="form-group">
+                            <label for="city">İl</label>
+                            <select id="city" name="city">
+                                <option value="">İl Seçin</option>
+                                <!-- İller JavaScript ile eklenecek -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="district">İlçe</label>
+                            <select id="district" name="district" disabled>
+                                <option value="">Önce İl Seçin</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Adres</label>
+                            <textarea id="address" name="address" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Bildirim Ayarları</h3>
+                        <div class="form-group">
+                            <label class="checkbox">
+                                <input type="checkbox" name="emailNotifications" checked>
+                                <span>E-posta Bildirimleri</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox">
+                                <input type="checkbox" name="smsNotifications" checked>
+                                <span>SMS Bildirimleri</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-save"></i> Değişiklikleri Kaydet
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Başka Elde</h3>
+                <p>İkinci el ürünlerinizi güvenle alıp satın.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Hızlı Bağlantılar</h3>
+                <ul>
+                    <li><a href="../index.html">Ana Sayfa</a></li>
+                    <li><a href="urun-listele.html">Ürünler</a></li>
+                    <li><a href="ilan-ekle.html">İlan Ver</a></li>
+                    <li><a href="profil.html">Profilim</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kategoriler</h3>
+                <ul>
+                    <li><a href="urun-listele.html?category=vasita">Vasıta</a></li>
+                    <li><a href="urun-listele.html?category=emlak">Emlak</a></li>
+                    <li><a href="urun-listele.html?category=elektronik">Elektronik</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>İletişim</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> info@baskaelde.com</li>
+                    <li><i class="fas fa-phone"></i> 0212 123 45 67</li>
+                    <li><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Başka Elde. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İlan Detayı - Başka Elde</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../index.html">BAŞKA ELDE</a>
+            </div>
+            <div class="search-bar">
+                <form id="searchForm">
+                    <div class="search-input-group">
+                        <input type="text" placeholder="Ne aramıştınız?">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="nav-links">
+                <button class="btn-secondary" onclick="showAuthModal()">
+                    <i class="fas fa-user"></i> Giriş Yap
+                </button>
+                <a href="ilan-ekle.html" class="btn-primary">
+                    <i class="fas fa-plus"></i> İlan Ver
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="listing-detail-container">
+        <div class="listing-detail">
+            <div class="listing-gallery">
+                <div class="main-image">
+                    <img id="mainImage" src="" alt="Ürün Fotoğrafı">
+                </div>
+                <div class="thumbnail-list" id="thumbnailList">
+                    <!-- Küçük resimler JavaScript ile eklenecek -->
+                </div>
+            </div>
+
+            <div class="listing-info">
+                <div class="listing-header">
+                    <h1 id="listingTitle"></h1>
+                    <div class="listing-meta">
+                        <span id="listingDate"></span>
+                        <span id="listingLocation"></span>
+                    </div>
+                </div>
+
+                <div class="listing-price">
+                    <h2 id="listingPrice"></h2>
+                </div>
+
+                <div class="listing-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Durum:</span>
+                        <span id="listingCondition"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Marka:</span>
+                        <span id="listingBrand"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Model:</span>
+                        <span id="listingModel"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Garanti:</span>
+                        <span id="listingWarranty"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Renk:</span>
+                        <span id="listingColor"></span>
+                    </div>
+                </div>
+
+                <div class="listing-description">
+                    <h3>Açıklama</h3>
+                    <p id="listingDescription"></p>
+                </div>
+
+                <div class="listing-tags" id="listingTags">
+                    <!-- Etiketler JavaScript ile eklenecek -->
+                </div>
+
+                <div class="seller-info">
+                    <h3>Satıcı Bilgileri</h3>
+                    <div class="seller-profile">
+                        <img id="sellerAvatar" src="../images/default-avatar.png" alt="Satıcı">
+                        <div class="seller-details">
+                            <h4 id="sellerName"></h4>
+                            <div class="seller-rating">
+                                <span id="sellerRating"></span>
+                                <span id="sellerReviewCount"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="seller-actions">
+                        <button class="btn-primary" onclick="contactSeller()">
+                            <i class="fas fa-envelope"></i> Mesaj Gönder
+                        </button>
+                        <button class="btn-secondary" onclick="toggleFavorite()">
+                            <i class="fas fa-heart"></i> Favorilere Ekle
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Başka Elde</h3>
+                <p>İkinci el ürünlerinizi güvenle alıp satın.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Hızlı Bağlantılar</h3>
+                <ul>
+                    <li><a href="../index.html">Ana Sayfa</a></li>
+                    <li><a href="urun-listele.html">Ürünler</a></li>
+                    <li><a href="ilan-ekle.html">İlan Ver</a></li>
+                    <li><a href="profil.html">Profilim</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kategoriler</h3>
+                <ul>
+                    <li><a href="urun-listele.html?category=vasita">Vasıta</a></li>
+                    <li><a href="urun-listele.html?category=emlak">Emlak</a></li>
+                    <li><a href="urun-listele.html?category=elektronik">Elektronik</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>İletişim</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> info@baskaelde.com</li>
+                    <li><i class="fas fa-phone"></i> 0212 123 45 67</li>
+                    <li><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Başka Elde. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

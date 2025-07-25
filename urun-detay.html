@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürün Detayı - Başka Elde</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../index.html">BAŞKA ELDE</a>
+            </div>
+            <div class="search-bar">
+                <form id="searchForm">
+                    <input type="text" placeholder="Ürün ara...">
+                    <button type="submit">Ara</button>
+                </form>
+            </div>
+            <div class="nav-links">
+                <a href="../pages/ilan-ekle.html" class="btn-primary">İlan Ver</a>
+                <a href="../pages/profil.html" class="btn-secondary">Profilim</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="product-details">
+        <div class="product-container">
+            <div class="product-gallery">
+                <div class="main-image">
+                    <img src="" alt="Ürün Resmi">
+                </div>
+                <div class="product-images">
+                    <!-- Ürün resimleri JavaScript ile buraya eklenecek -->
+                </div>
+            </div>
+
+            <div class="product-info">
+                <h1 class="product-title"></h1>
+                <p class="product-price"></p>
+                <p class="product-location"></p>
+                <p class="product-condition"></p>
+                <div class="product-description"></div>
+
+                <div class="seller-info">
+                    <h3>Satıcı Bilgileri</h3>
+                    <p class="seller-name"></p>
+                    <p class="seller-rating"></p>
+                    <p class="seller-location"></p>
+                    <button class="btn-primary" onclick="showModal('messageModal')">Mesaj Gönder</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mesaj Modal -->
+    <div id="messageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('messageModal')">&times;</span>
+            <h2>Satıcıya Mesaj Gönder</h2>
+            <form id="messageForm">
+                <div class="form-group">
+                    <label for="message">Mesajınız</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Gönder</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Başka Elde</h3>
+                <p>İkinci el ürünlerinizi güvenle alıp satın.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Hızlı Bağlantılar</h3>
+                <ul>
+                    <li><a href="../index.html">Ana Sayfa</a></li>
+                    <li><a href="../pages/urun-listele.html">Ürünler</a></li>
+                    <li><a href="../pages/ilan-ekle.html">İlan Ver</a></li>
+                    <li><a href="../pages/profil.html">Profilim</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>İletişim</h3>
+                <ul>
+                    <li>Email: info@baskaelde.com</li>
+                    <li>Tel: 0212 123 45 67</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Başka Elde. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="../js/product-detail.js"></script>
+</body>
+</html> 

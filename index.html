@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Başka Elde - İkinci El Alışveriş</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="index.html">BAŞKA ELDE</a>
+            </div>
+            <div class="search-bar">
+                <form id="searchForm">
+                    <div class="search-input-group">
+                        <input type="text" placeholder="Ne aramıştınız?">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="nav-links">
+                <button class="btn-secondary" onclick="showAuthModal()">
+                    <i class="fas fa-user"></i> Giriş Yap
+                </button>
+                <a href="pages/ilan-ekle.html" class="btn-primary">
+                    <i class="fas fa-plus"></i> İlan Ver
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Bölümü -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">İkinci El Alışverişin<br>Güvenli Adresi</h1>
+                <p class="hero-description">Binlerce güvenilir satıcı ve alıcı ile tanışın.<br>İkinci el eşyalarınızı değerinde alın veya satın.</p>
+                <div class="hero-buttons">
+                    <a href="pages/urun-listele.html" class="btn-primary">Ürünleri Keşfet</a>
+                    <a href="pages/ilan-ekle.html" class="btn-secondary">İlan Ver</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Özellikler -->
+        <section class="features">
+            <div class="feature-card">
+                <i class="fas fa-truck-fast"></i>
+                <h3>Hızlı Teslimat</h3>
+                <p>Güvenli kargo seçenekleri ile hızlı teslimat imkanı</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>%100 Güvenli Alışveriş</h3>
+                <p>Güvenli ödeme sistemi ve alıcı koruması</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-headset"></i>
+                <h3>7/24 Destek</h3>
+                <p>Sorularınız için her zaman yanınızdayız</p>
+            </div>
+        </section>
+
+        <!-- Nitro İlanlar -->
+        <section class="nitro-listings">
+            <div class="section-header">
+                <h2>Nitro İlanlar</h2>
+                <p>Öne çıkan premium ilanlarımızı keşfedin</p>
+            </div>
+            <div class="product-grid">
+                <!-- Ürünler JavaScript ile eklenecek -->
+            </div>
+            <div class="scroll-buttons">
+                <button class="scroll-btn" onclick="scrollNitroListings('left')">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="scroll-btn" onclick="scrollNitroListings('right')">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Kategoriler -->
+        <section class="featured-categories">
+            <div class="section-header">
+                <h2>Popüler Kategoriler</h2>
+                <p>En çok tercih edilen kategorilerimiz</p>
+            </div>
+            <div class="categories-grid">
+                <a href="pages/urun-listele.html?category=vasita" class="category-card">
+                    <div class="category-card-image">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="category-card-content">
+                        <h3 class="category-card-title">Vasıta</h3>
+                        <span class="category-card-count">1.234 ilan</span>
+                    </div>
+                </a>
+                <a href="pages/urun-listele.html?category=emlak" class="category-card">
+                    <div class="category-card-image">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="category-card-content">
+                        <h3 class="category-card-title">Emlak</h3>
+                        <span class="category-card-count">2.345 ilan</span>
+                    </div>
+                </a>
+                <a href="pages/urun-listele.html?category=elektronik" class="category-card">
+                    <div class="category-card-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="category-card-content">
+                        <h3 class="category-card-title">Elektronik</h3>
+                        <span class="category-card-count">3.456 ilan</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Başka Elde</h3>
+                <p>İkinci el ürünlerinizi güvenle alıp satın.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Hızlı Bağlantılar</h3>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="pages/urun-listele.html">Ürünler</a></li>
+                    <li><a href="pages/ilan-ekle.html">İlan Ver</a></li>
+                    <li><a href="pages/profil.html">Profilim</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kategoriler</h3>
+                <ul>
+                    <li><a href="pages/urun-listele.html?category=vasita">Vasıta</a></li>
+                    <li><a href="pages/urun-listele.html?category=emlak">Emlak</a></li>
+                    <li><a href="pages/urun-listele.html?category=elektronik">Elektronik</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>İletişim</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> info@baskaelde.com</li>
+                    <li><i class="fas fa-phone"></i> 0212 123 45 67</li>
+                    <li><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Başka Elde. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="auth-modal">
+        <div class="auth-modal-content">
+            <span class="close" onclick="closeAuthModal()">&times;</span>
+            <div class="auth-tabs">
+                <div class="auth-tab active" onclick="switchAuthTab('login')">Giriş Yap</div>
+                <div class="auth-tab" onclick="switchAuthTab('register')">Kayıt Ol</div>
+            </div>
+            <form id="loginForm" class="auth-form active">
+                <div class="form-group">
+                    <label for="loginEmail">E-posta</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Şifre</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit">Giriş Yap</button>
+                <a href="#" class="forgot-password">Şifremi Unuttum</a>
+            </form>
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label for="registerName">Ad Soyad</label>
+                    <input type="text" id="registerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">E-posta</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Şifre</label>
+                    <input type="password" id="registerPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPasswordConfirm">Şifre Tekrar</label>
+                    <input type="password" id="registerPasswordConfirm" required>
+                </div>
+                <button type="submit">Kayıt Ol</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

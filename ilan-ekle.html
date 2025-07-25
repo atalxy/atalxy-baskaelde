@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İlan Ver - Başka Elde</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../index.html">BAŞKA ELDE</a>
+            </div>
+            <div class="search-bar">
+                <form id="searchForm">
+                    <div class="search-input-group">
+                        <input type="text" placeholder="Ne aramıştınız?">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="nav-links">
+                <button class="btn-secondary" onclick="showAuthModal()">
+                    <i class="fas fa-user"></i> Giriş Yap
+                </button>
+                <a href="ilan-ekle.html" class="btn-primary">
+                    <i class="fas fa-plus"></i> İlan Ver
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="listing-form-container">
+        <div class="form-header">
+            <h1>İlan Ver</h1>
+            <p>Ürününüzü hemen satışa çıkarın</p>
+        </div>
+
+        <form id="listingForm" class="listing-form">
+            <!-- Kategori Seçimi -->
+            <div class="form-section">
+                <h2>Kategori Seçimi</h2>
+                <div class="form-group">
+                    <label for="category">Ana Kategori</label>
+                    <select id="category" name="category" required>
+                        <option value="">Kategori Seçin</option>
+                        <option value="vasita">Vasıta</option>
+                        <option value="emlak">Emlak</option>
+                        <option value="elektronik">Elektronik</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="subCategory">Alt Kategori</label>
+                    <select id="subCategory" name="subCategory" required disabled>
+                        <option value="">Önce Ana Kategori Seçin</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- İlan Detayları -->
+            <div class="form-section">
+                <h2>İlan Detayları</h2>
+                <div class="form-group">
+                    <label for="title">İlan Başlığı</label>
+                    <input type="text" id="title" name="title" required 
+                           placeholder="Ürününüzü kısaca tanımlayan bir başlık girin">
+                </div>
+                <div class="form-group">
+                    <label for="description">Açıklama</label>
+                    <textarea id="description" name="description" rows="5" required
+                              placeholder="Ürününüz hakkında detaylı bilgi verin"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="price">Fiyat</label>
+                    <div class="price-input-group">
+                        <input type="number" id="price" name="price" required min="0" step="0.01"
+                               placeholder="0.00">
+                        <span class="currency">TL</span>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3>İlan Özellikleri</h3>
+                    <div class="form-group">
+                        <label for="condition">Ürün Durumu</label>
+                        <select id="condition" name="condition" required>
+                            <option value="">Durum Seçin</option>
+                            <option value="new">Sıfır</option>
+                            <option value="like-new">Az Kullanılmış</option>
+                            <option value="good">İyi</option>
+                            <option value="fair">Orta</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="brand">Marka</label>
+                        <input type="text" id="brand" name="brand" placeholder="Ürün markasını girin">
+                    </div>
+                    <div class="form-group">
+                        <label for="model">Model</label>
+                        <input type="text" id="model" name="model" placeholder="Ürün modelini girin">
+                    </div>
+                    <div class="form-group">
+                        <label for="warranty">Garanti Durumu</label>
+                        <select id="warranty" name="warranty">
+                            <option value="">Garanti Durumu Seçin</option>
+                            <option value="yes">Garantisi Devam Ediyor</option>
+                            <option value="no">Garantisi Yok</option>
+                            <option value="expired">Garantisi Bitmiş</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="color">Renk</label>
+                        <input type="text" id="color" name="color" placeholder="Ürün rengini girin">
+                    </div>
+                    <div class="form-group">
+                        <label for="tags">Etiketler</label>
+                        <input type="text" id="tags" name="tags" placeholder="Etiketleri virgülle ayırarak girin">
+                        <small>Örnek: iphone, telefon, elektronik</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fotoğraflar -->
+            <div class="form-section">
+                <h2>Fotoğraflar</h2>
+                <div class="form-group">
+                    <div class="photo-upload-container">
+                        <div class="photo-upload-box">
+                            <input type="file" id="photos" name="photos" multiple accept="image/*">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Fotoğrafları sürükleyin veya seçin</p>
+                            <span>En az 1, en fazla 10 fotoğraf (max. 5MB/foto)</span>
+                        </div>
+                        <div id="photoPreview" class="photo-preview-grid"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Konum Bilgisi -->
+            <div class="form-section">
+                <h2>Konum Bilgisi</h2>
+                <div class="form-group">
+                    <label for="city">İl</label>
+                    <select id="city" name="city" required>
+                        <option value="">İl Seçin</option>
+                        <option value="istanbul">İstanbul</option>
+                        <option value="ankara">Ankara</option>
+                        <option value="izmir">İzmir</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="district">İlçe</label>
+                    <select id="district" name="district" required disabled>
+                        <option value="">Önce İl Seçin</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- İlan Seçenekleri -->
+            <div class="form-section">
+                <h2>İlan Seçenekleri</h2>
+                <div class="form-group">
+                    <label class="checkbox">
+                        <input type="checkbox" name="isNitro" id="isNitro">
+                        <span>Nitro İlan (Öne Çıkarılmış)</span>
+                    </label>
+                    <p class="option-description">İlanınız ana sayfada ve kategori listesinde üst sıralarda görünür.</p>
+                </div>
+            </div>
+
+            <!-- Gönder Butonu -->
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-check"></i> İlanı Yayınla
+                </button>
+                <button type="button" class="btn-secondary" onclick="history.back()">
+                    <i class="fas fa-times"></i> İptal
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Başka Elde</h3>
+                <p>İkinci el ürünlerinizi güvenle alıp satın.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Hızlı Bağlantılar</h3>
+                <ul>
+                    <li><a href="../index.html">Ana Sayfa</a></li>
+                    <li><a href="urun-listele.html">Ürünler</a></li>
+                    <li><a href="ilan-ekle.html">İlan Ver</a></li>
+                    <li><a href="profil.html">Profilim</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kategoriler</h3>
+                <ul>
+                    <li><a href="urun-listele.html?category=vasita">Vasıta</a></li>
+                    <li><a href="urun-listele.html?category=emlak">Emlak</a></li>
+                    <li><a href="urun-listele.html?category=elektronik">Elektronik</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>İletişim</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> info@baskaelde.com</li>
+                    <li><i class="fas fa-phone"></i> 0212 123 45 67</li>
+                    <li><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Başka Elde. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

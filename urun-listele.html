@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürünler - Başka Elde</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../index.html">BAŞKA ELDE</a>
+            </div>
+            <div class="search-bar">
+                <form id="searchForm">
+                    <div class="search-input-group">
+                        <input type="text" placeholder="Ürün, kategori veya marka ara...">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="nav-links">
+                <a href="ilan-ekle.html" class="btn-primary"><i class="fas fa-plus"></i> İlan Ver</a>
+                <div class="user-menu">
+                    <button class="btn-secondary" onclick="showModal('loginModal')">
+                        <i class="fas fa-user"></i> Giriş Yap
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="listing-container">
+        <!-- Sol Filtreler -->
+        <aside class="filters-sidebar">
+            <div class="filter-section">
+                <h3>Kategoriler</h3>
+                <ul class="category-list">
+                    <li>
+                        <a href="#" data-category="all" class="active">Tüm Kategoriler</a>
+                    </li>
+                    <li>
+                        <a href="#" data-category="vasita">Vasıta</a>
+                    </li>
+                    <li>
+                        <a href="#" data-category="emlak">Emlak</a>
+                    </li>
+                    <li>
+                        <a href="#" data-category="elektronik">Elektronik</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="filter-section">
+                <h3>Fiyat Aralığı</h3>
+                <div class="price-filter">
+                    <input type="number" placeholder="Min" id="minPrice">
+                    <span>-</span>
+                    <input type="number" placeholder="Max" id="maxPrice">
+                    <button type="button" class="btn-apply">Uygula</button>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Konum</h3>
+                <div class="location-filter">
+                    <select id="city">
+                        <option value="">İl Seçin</option>
+                        <option value="istanbul">İstanbul</option>
+                        <option value="ankara">Ankara</option>
+                        <option value="izmir">İzmir</option>
+                        <option value="bursa">Bursa</option>
+                    </select>
+                    <select id="district" disabled>
+                        <option value="">İlçe Seçin</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Durum</h3>
+                <div class="condition-filter">
+                    <label class="checkbox">
+                        <input type="checkbox" value="new">
+                        <span>Yeni</span>
+                        <span class="count">(1.234)</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" value="like-new">
+                        <span>Yeni Gibi</span>
+                        <span class="count">(2.345)</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" value="good">
+                        <span>İyi</span>
+                        <span class="count">(3.456)</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" value="fair">
+                        <span>Normal</span>
+                        <span class="count">(4.567)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>İlan Türü</h3>
+                <div class="listing-type-filter">
+                    <label class="checkbox">
+                        <input type="checkbox" value="nitro">
+                        <span>Nitro İlanlar</span>
+                        <span class="count">(234)</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" value="featured">
+                        <span>Öne Çıkanlar</span>
+                        <span class="count">(567)</span>
+                    </label>
+                </div>
+            </div>
+
+            <button class="btn-clear-filters">Filtreleri Temizle</button>
+        </aside>
+
+        <!-- Sağ İçerik -->
+        <div class="listing-content">
+            <div class="listing-header">
+                <div class="listing-title">
+                    <h1>Tüm İlanlar</h1>
+                    <span class="total-count">12.345 ilan listelendi</span>
+                </div>
+                <div class="listing-sort">
+                    <select id="sortOrder">
+                        <option value="newest">En Yeni</option>
+                        <option value="price-asc">Fiyat (Düşükten Yükseğe)</option>
+                        <option value="price-desc">Fiyat (Yüksekten Düşüğe)</option>
+                        <option value="popular">En Popüler</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="product-grid">
+                <!-- Ürünler JavaScript ile buraya eklenecek -->
+            </div>
+
+            <div class="pagination">
+                <button class="page-btn prev" disabled><i class="fas fa-chevron-left"></i></button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <span class="page-dots">...</span>
+                <button class="page-btn">50</button>
+                <button class="page-btn next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Başka Elde</h3>
+                <p>İkinci el ürünlerinizi güvenle alıp satın.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Hızlı Bağlantılar</h3>
+                <ul>
+                    <li><a href="../index.html">Ana Sayfa</a></li>
+                    <li><a href="../pages/urun-listele.html">Ürünler</a></li>
+                    <li><a href="../pages/ilan-ekle.html">İlan Ver</a></li>
+                    <li><a href="../pages/profil.html">Profilim</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>İletişim</h3>
+                <ul>
+                    <li>Email: info@baskaelde.com</li>
+                    <li>Tel: 0212 123 45 67</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Başka Elde. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="../js/product-list.js"></script>
+</body>
+</html> 
